@@ -85,7 +85,15 @@ h2{font-size:clamp(1.5rem,3.7vw,2.1rem);line-height:1.15;letter-spacing:-.025em;
 
 /* ---------- the challenges ---------- */
 .games{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.games.one{grid-template-columns:1fr;max-width:560px}
+.games.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:760px){.games.two{grid-template-columns:1fr}}
+.game.keep{border-color:rgba(255,122,24,.55);background:linear-gradient(180deg,rgba(255,122,24,.1),var(--panel))}
+.game.fresh{border-color:rgba(34,211,238,.55);background:linear-gradient(180deg,rgba(34,211,238,.1),var(--panel))}
+.game .gtag{align-self:flex-start;font-size:.66rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;
+  padding:5px 10px;border-radius:999px;margin-bottom:2px}
+.game.keep .gtag{background:rgba(255,122,24,.18);color:var(--ball)}
+.game.fresh .gtag{background:rgba(34,211,238,.16);color:var(--net)}
+.game.fresh .gplay{color:var(--net)}
 @media(max-width:820px){.games{grid-template-columns:1fr}}
 .game{
   display:flex;flex-direction:column;gap:7px;padding:20px 22px;border-radius:16px;
@@ -195,12 +203,20 @@ footer a{color:var(--mute)}
 <section id="play">
   <div class="wrap">
     <h2 data-t="playH">Try a challenge now</h2>
-    <p class="sub" data-t="playP">This is what the students play — five basketballs on a backboard. Take a few rounds yourself; it explains the whole thing faster than we can.</p>
-    <div class="games one">
-      <a class="game" href="fortress.html">
+    <p class="sub" data-t="playP">This is what the students play. Take a few rounds yourself; it explains the whole thing faster than we can.</p>
+    <p class="sub" style="margin:-8px 0 18px" data-t="sameBoard">Both are played on the same backboard with the same five basketballs. What changes is what happens when you get a round right.</p>
+    <div class="games two">
+      <a class="game keep" href="fortress.html">
+        <span class="gtag" data-t="tagKeep">The chain grows</span>
         <span class="gname" data-t="gFort">The Fortress</span>
-        <span class="gdesc" data-t="gFortD">Five basketballs on a backboard. Watch the chain, tap it back — one longer every round.</span>
+        <span class="gdesc" data-t="gFortD">One ball is added to the same pattern every round. Everything you already learned stays — you just add the new one on the end.</span>
         <span class="gplay" data-t="gPlay">Play →</span>
+      </a>
+      <a class="game fresh" href="rebound.html">
+        <span class="gtag" data-t="tagFresh">A new pattern</span>
+        <span class="gname" data-t="gReb">The Rebound</span>
+        <span class="gdesc" data-t="gRebD">Every round is a completely new pattern, one ball longer. Nothing carries over, so nothing can be guessed. Much harder.</span>
+        <span class="gplay" data-t="gPlay2">Play →</span>
       </a>
     </div>
     <p class="freeplay" data-t="freeP">Free to try. Students in a program play as much as they like.</p>
@@ -290,9 +306,14 @@ var STR = {
     s3p:'The board goes up',
     s3pp:'Each padrino gets an email with the score and a pay button. Once the target is reached, we order the board and TrueBounce installs it.',
     playH:'Try a challenge now',
-    playP:'This is what the students play — five basketballs on a backboard. Take a few rounds yourself; it explains the whole thing faster than we can.',
+    playP:'This is what the students play. Take a few rounds yourself; it explains the whole thing faster than we can.',
+    sameBoard:'Both are played on the same backboard with the same five basketballs. What changes is what happens when you get a round right.',
+    tagKeep:'The chain grows', tagFresh:'A new pattern',
     gFort:'The Fortress',
-    gFortD:'Five basketballs on a backboard. Watch the chain, tap it back — one longer every round.',
+    gFortD:'One ball is added to the same pattern every round. Everything you already learned stays — you just add the new one on the end.',
+    gReb:'The Rebound',
+    gRebD:'Every round is a completely new pattern, one ball longer. Nothing carries over, so nothing can be guessed. Much harder.',
+    gPlay2:'Play →',
     gPlay:'Play →',
     freeP:'Free to try. Students in a program play as much as they like.',
     scoreH:'Every round is worth more than the last',
@@ -331,9 +352,14 @@ var STR = {
     s3p:'El tablero se instala',
     s3pp:'Cada padrino recibe un correo con la puntuación y un botón para pagar. Alcanzada la meta, pedimos el tablero y TrueBounce lo instala.',
     playH:'Prueba un reto ahora',
-    playP:'Esto es lo que juegan los estudiantes — cinco balones en un tablero. Juega unas rondas; explica todo más rápido que nosotros.',
+    playP:'Esto es lo que juegan los estudiantes. Juega unas rondas; explica todo más rápido que nosotros.',
+    sameBoard:'Los dos se juegan en el mismo tablero, con los mismos cinco balones. Lo que cambia es qué pasa cuando aciertas una ronda.',
+    tagKeep:'La cadena crece', tagFresh:'Un patrón nuevo',
     gFort:'The Fortress',
-    gFortD:'Cinco balones en un tablero. Observa la cadena y tócala de vuelta — una más cada ronda.',
+    gFortD:'Cada ronda añade un balón al mismo patrón. Todo lo que ya aprendiste se queda — solo añades el nuevo al final.',
+    gReb:'The Rebound',
+    gRebD:'Cada ronda es un patrón completamente nuevo, con un balón más. Nada se arrastra, así que nada se puede adivinar. Mucho más difícil.',
+    gPlay2:'Jugar →',
     gPlay:'Jugar →',
     freeP:'Gratis para probar. Los estudiantes de un programa juegan todo lo que quieran.',
     scoreH:'Cada ronda vale más que la anterior',
