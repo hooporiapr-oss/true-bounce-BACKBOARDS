@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TrueBounce Puerto Rico — your community buys the backboard</title>
+<meta name="description" content="A complete TrueBounce backboard, installed, paid for by the people who use the court. No cost to the program.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#05080C;
+  --panel:#0C1218;
+  --line:#ffffff1f;
+  --paper:#EEF3F7;
+  --mute:#93A3B2;
+  --ball:#FF7A18;      /* the ball, the trim, the thing you look at */
+  --net:#22D3EE;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ink);color:var(--paper);
+  font-family:Archivo,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+.wrap{width:min(1080px,92vw);margin:0 auto}
+a{color:inherit}
+
+/* ---------- nav ---------- */
+header{
+  position:sticky;top:0;z-index:50;background:rgba(5,8,12,.92);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top,0px);
+}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0}
+.mark{display:flex;align-items:baseline;gap:9px;text-decoration:none;font-weight:900;letter-spacing:-.02em;line-height:1}
+.mark .tb{font-size:1.15rem;color:var(--paper)}
+.mark .tb b{color:var(--ball)}
+.mark .pr{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);font-weight:800}
+.navbtns{display:flex;gap:8px;align-items:center}
+.lang{background:none;border:1px solid var(--line);color:var(--mute);border-radius:999px;
+  padding:7px 13px;font:inherit;font-size:.78rem;font-weight:800;cursor:pointer;letter-spacing:.06em}
+.lang:hover{color:var(--paper);border-color:#ffffff45}
+
+.btn{display:inline-block;padding:14px 22px;border-radius:12px;text-decoration:none;
+  font-weight:800;font-size:.95rem;border:1px solid transparent;cursor:pointer}
+.btn-solid{background:var(--ball);color:#0A0500}
+.btn-line{border-color:var(--line);color:var(--paper)}
+.btn-sm{padding:9px 15px;font-size:.84rem}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(40px,7vw,78px) 0 clamp(30px,5vw,50px);position:relative;overflow:hidden}
+.hero::before{
+  content:'';position:absolute;inset:-20% -10% auto -10%;height:70%;
+  background:radial-gradient(60% 70% at 30% 0%,rgba(255,122,24,.18),transparent 70%);
+  pointer-events:none;
+}
+.kick{font-size:.74rem;font-weight:900;letter-spacing:.24em;text-transform:uppercase;color:var(--ball);margin-bottom:14px}
+h1{font-size:clamp(2.1rem,6.4vw,3.6rem);line-height:1.04;letter-spacing:-.03em;font-weight:900;margin:0 0 16px;max-width:17ch;text-wrap:balance}
+.lede{font-size:clamp(1rem,2.4vw,1.18rem);color:#C6D2DC;max-width:56ch;margin:0 0 26px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* ---------- the number ---------- */
+.deal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:clamp(26px,4vw,40px) 0}
+@media(max-width:720px){.deal{grid-template-columns:1fr}}
+.deal div{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--panel)}
+.deal .big{display:block;font-size:1.9rem;font-weight:900;letter-spacing:-.02em;color:var(--ball);line-height:1.1}
+.deal .lbl{display:block;color:var(--mute);font-size:.9rem;margin-top:5px}
+.deal .hi{border-color:rgba(255,122,24,.45);background:rgba(255,122,24,.08)}
+
+/* ---------- sections ---------- */
+section{padding:clamp(34px,5.5vw,62px) 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.5rem,3.7vw,2.1rem);line-height:1.15;letter-spacing:-.025em;font-weight:900;margin:0 0 12px;text-wrap:balance}
+.sub{color:var(--mute);max-width:60ch;margin:0 0 26px}
+
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.step{border:1px solid var(--line);border-radius:16px;padding:20px 22px;background:var(--panel)}
+.step .n{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;
+  background:var(--ball);color:#0A0500;font-weight:900;font-size:.95rem;margin-bottom:12px}
+.step h3{margin:0 0 6px;font-size:1.08rem;font-weight:800;letter-spacing:-.01em}
+.step p{margin:0;color:#C6D2DC;font-size:.95rem}
+
+/* ---------- the challenges ---------- */
+.games{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.games.one{grid-template-columns:1fr;max-width:560px}
+@media(max-width:820px){.games{grid-template-columns:1fr}}
+.game{
+  display:flex;flex-direction:column;gap:7px;padding:20px 22px;border-radius:16px;
+  text-decoration:none;border:1.5px solid var(--line);background:var(--panel);
+  transition:transform .12s,border-color .2s;position:relative;overflow:hidden;
+}
+.game:hover{transform:translateY(-2px);border-color:rgba(255,122,24,.5)}
+.game .gname{font-weight:900;font-size:1.1rem;letter-spacing:-.01em}
+.game .gdesc{color:var(--mute);font-size:.93rem;line-height:1.5}
+.game .gplay{margin-top:auto;padding-top:8px;font-weight:800;font-size:.9rem;color:var(--ball)}
+.freeplay{color:var(--mute);font-size:.9rem;margin:16px 0 0}
+
+/* ---------- scoring ---------- */
+.score{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:22px;max-width:520px}
+table{width:100%;border-collapse:collapse;font-size:.98rem}
+th{text-align:left;padding:8px 0;border-bottom:1px solid var(--paper);font-size:.72rem;
+  font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+th:last-child,td:last-child{text-align:right}
+td{padding:9px 0;border-bottom:1px solid #ffffff12}
+tr:last-child td{border-bottom:none}
+.score .fine{color:var(--mute);font-size:.88rem;margin:12px 0 0}
+
+/* ---------- the board ---------- */
+.board{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(20px,3vw,34px);align-items:start}
+@media(max-width:820px){.board{grid-template-columns:1fr}}
+.specs{list-style:none;margin:0;padding:0}
+.specs li{padding:11px 0;border-bottom:1px solid #ffffff12;color:#C6D2DC;font-size:.97rem}
+.specs li:last-child{border-bottom:none}
+.specs b{color:var(--paper)}
+.shot{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:22px}
+.shot .q{font-size:1.05rem;line-height:1.55;color:var(--paper);margin:0 0 10px}
+.shot .who{color:var(--mute);font-size:.88rem;margin:0}
+
+.cost{border:1px solid rgba(255,122,24,.45);background:rgba(255,122,24,.07);border-radius:16px;padding:22px 24px}
+.cost h3{margin:0 0 6px;font-size:1.15rem;font-weight:900;color:var(--ball)}
+.cost p{margin:0;color:#C6D2DC}
+
+.close{text-align:center;padding-bottom:clamp(44px,7vw,80px)}
+.close h2{margin-left:auto;margin-right:auto;max-width:18ch}
+.close .sub{margin-left:auto;margin-right:auto}
+.close .actions{justify-content:center}
+
+footer{border-top:1px solid var(--line);padding:26px 0 calc(30px + env(safe-area-inset-bottom,0px));color:var(--mute);font-size:.86rem}
+footer .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+footer a{color:var(--mute)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="#top">
+      <span class="tb">TRUE<b>BOUNCE</b></span>
+      <span class="pr" data-t="markPr">Puerto Rico</span>
+    </a>
+    <div class="navbtns">
+      <a class="btn btn-line btn-sm" href="#play" data-t="navPlay">Try it</a>
+      <button class="lang" id="langBtn" onclick="toggleLang()">ES</button>
+    </div>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="kick" data-t="kick">TrueBounce × Cada Punto</div>
+    <h1 data-t="h1">Your community buys the backboard.</h1>
+    <p class="lede" data-t="lede">A complete TrueBounce system, delivered and installed, paid for by the families who use the court. The program spends nothing.</p>
+    <div class="actions">
+      <a class="btn btn-solid" href="#how" data-t="cta1">How it works</a>
+      <a class="btn btn-line" href="#play" data-t="cta2">Play a challenge</a>
+    </div>
+
+    <div class="deal">
+      <div class="hi"><span class="big">$2,400</span><span class="lbl" data-t="d1">A complete board, installed</span></div>
+      <div><span class="big">54</span><span class="lbl" data-t="d2">Students, with four padrinos each</span></div>
+      <div><span class="big">$0</span><span class="lbl" data-t="d3">What the program pays</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <h2 data-t="howH">Nothing to sell. Nothing to deliver.</h2>
+    <p class="sub" data-t="howP">Students play a memory challenge. Their family and friends pledge for every point they score. When the runs are done, each padrino pays for the points that were actually scored — and the board goes up.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3 data-t="s1h">Padrinos pledge per point</h3>
+        <p data-t="s1p">Each student shares one link. A parent, an aunt, a neighbour pledges whatever they like per point — ten cents, a quarter, a dollar. Nothing is charged yet.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3 data-t="s2h">One official run</h3>
+        <p data-t="s2p">Practice is free and unlimited. Then one run that counts, scored by our software. Nobody counts by hand and nobody can run it twice.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3 data-t="s3p">The board goes up</h3>
+        <p data-t="s3pp">Each padrino gets an email with the score and a pay button. Once the target is reached, we order the board and TrueBounce installs it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="play">
+  <div class="wrap">
+    <h2 data-t="playH">Try a challenge now</h2>
+    <p class="sub" data-t="playP">This is what the students play — five basketballs on a backboard. Take a few rounds yourself; it explains the whole thing faster than we can.</p>
+    <div class="games one">
+      <a class="game" href="fortress.html">
+        <span class="gname" data-t="gFort">The Fortress</span>
+        <span class="gdesc" data-t="gFortD">Five basketballs on a backboard. Watch the chain, tap it back — one longer every round.</span>
+        <span class="gplay" data-t="gPlay">Play →</span>
+      </a>
+    </div>
+    <p class="freeplay" data-t="freeP">Free to try. Students in a program play as much as they like.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 data-t="scoreH">Every round is worth more than the last</h2>
+    <p class="sub" data-t="scoreP">Chain scoring: each round adds one more to remember, and banks its own points. Going from nine rounds to twelve is not a third more — it is nearly double.</p>
+    <div class="score">
+      <table>
+        <thead><tr><th data-t="thR">Rounds held</th><th data-t="thP">Points</th></tr></thead>
+        <tbody>
+          <tr><td>6</td><td>21</td></tr>
+          <tr><td>9</td><td>45</td></tr>
+          <tr><td>12</td><td><b style="color:var(--ball)">78</b></td></tr>
+          <tr><td>15</td><td>120</td></tr>
+        </tbody>
+      </table>
+      <p class="fine" data-t="scoreFine">No ceiling. A run ends at the first wrong tap, so a padrino never faces a surprise — and a student has every reason to practise.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 data-t="boardH">What $2,400 puts on the court</h2>
+    <p class="sub" data-t="boardP">A complete TrueBounce system — board, rim, padding and hardware — delivered and installed.</p>
+    <div class="board">
+      <ul class="specs">
+        <li data-t="sp1"><b>Perforated playing surface.</b> The holes release the ball's energy, so rebounds come off true and players use the board instead of avoiding it.</li>
+        <li data-t="sp2"><b>Made to last outdoors.</b> Shatter-proof, UV-resistant and graffiti-resistant — built for a court that lives outside.</li>
+        <li data-t="sp3"><b>Patented, and made in Massachusetts.</b> TrueBounce has been building them since 1992.</li>
+        <li data-t="sp4"><b>Already the standard.</b> New York, Boston, Philadelphia, Atlanta, San Francisco and Sacramento play on them, along with schools and parks across the country.</li>
+        <li data-t="sp5"><b>Installed here.</b> We deliver and fit them in Puerto Rico ourselves.</li>
+      </ul>
+      <div class="shot">
+        <p class="q" data-t="quote">“A better backboard system than any NBA team.”</p>
+        <p class="who" data-t="quoteWho">— a school director in Puerto Rico, after we installed his</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cost">
+      <h3 data-t="costH">Free for your program.</h3>
+      <p data-t="costP">No setup fee, no monthly fee, no contract, and nothing to order, store or hand back. Our fee comes out of the board, never out of what a family pledged. Raise more than the target and every extra dollar stays with the program.</p>
+    </div>
+  </div>
+</section>
+
+<section class="close" id="talk">
+  <div class="wrap">
+    <h2 data-t="closeH">Tell us about your court.</h2>
+    <p class="sub" data-t="closeP">Send us the program, how many students and how many boards you need. We build the whole thing — the roster, a link for every student — and send it over to look at. Nothing goes live until you say so.</p>
+    <div class="actions">
+      <a class="btn btn-solid" href="mailto:gostardigital@gmail.com?subject=TrueBounce%20backboard%20fundraiser" data-t="closeCta">Talk to us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <span data-t="foot1">TrueBounce Puerto Rico · Gostar Digital LLC</span>
+    <span><a href="mailto:gostardigital@gmail.com">gostardigital@gmail.com</a> · <a href="https://hooporia.com">hooporia.com</a></span>
+  </div>
+</footer>
+
+<script>
+var STR = {
+  en:{
+    markPr:'Puerto Rico', navPlay:'Try it',
+    kick:'TrueBounce × Cada Punto',
+    h1:'Your community buys the backboard.',
+    lede:'A complete TrueBounce system, delivered and installed, paid for by the families who use the court. The program spends nothing.',
+    cta1:'How it works', cta2:'Play a challenge',
+    d1:'A complete board, installed', d2:'Students, with four padrinos each', d3:'What the program pays',
+    howH:'Nothing to sell. Nothing to deliver.',
+    howP:'Students play a memory challenge. Their family and friends pledge for every point they score. When the runs are done, each padrino pays for the points that were actually scored — and the board goes up.',
+    s1h:'Padrinos pledge per point',
+    s1p:'Each student shares one link. A parent, an aunt, a neighbour pledges whatever they like per point — ten cents, a quarter, a dollar. Nothing is charged yet.',
+    s2h:'One official run',
+    s2p:'Practice is free and unlimited. Then one run that counts, scored by our software. Nobody counts by hand and nobody can run it twice.',
+    s3p:'The board goes up',
+    s3pp:'Each padrino gets an email with the score and a pay button. Once the target is reached, we order the board and TrueBounce installs it.',
+    playH:'Try a challenge now',
+    playP:'This is what the students play — five basketballs on a backboard. Take a few rounds yourself; it explains the whole thing faster than we can.',
+    gFort:'The Fortress',
+    gFortD:'Five basketballs on a backboard. Watch the chain, tap it back — one longer every round.',
+    gPlay:'Play →',
+    freeP:'Free to try. Students in a program play as much as they like.',
+    scoreH:'Every round is worth more than the last',
+    scoreP:'Chain scoring: each round adds one more to remember, and banks its own points. Going from nine rounds to twelve is not a third more — it is nearly double.',
+    thR:'Rounds held', thP:'Points',
+    scoreFine:'No ceiling. A run ends at the first wrong tap, so a padrino never faces a surprise — and a student has every reason to practise.',
+    boardH:'What $2,400 puts on the court',
+    boardP:'A complete TrueBounce system — board, rim, padding and hardware — delivered and installed.',
+    sp1:'<b>Perforated playing surface.</b> The holes release the ball\u2019s energy, so rebounds come off true and players use the board instead of avoiding it.',
+    sp2:'<b>Made to last outdoors.</b> Shatter-proof, UV-resistant and graffiti-resistant — built for a court that lives outside.',
+    sp3:'<b>Patented, and made in Massachusetts.</b> TrueBounce has been building them since 1992.',
+    sp4:'<b>Already the standard.</b> New York, Boston, Philadelphia, Atlanta, San Francisco and Sacramento play on them, along with schools and parks across the country.',
+    sp5:'<b>Installed here.</b> We deliver and fit them in Puerto Rico ourselves.',
+    quote:'“A better backboard system than any NBA team.”',
+    quoteWho:'— a school director in Puerto Rico, after we installed his',
+    costH:'Free for your program.',
+    costP:'No setup fee, no monthly fee, no contract, and nothing to order, store or hand back. Our fee comes out of the board, never out of what a family pledged. Raise more than the target and every extra dollar stays with the program.',
+    closeH:'Tell us about your court.',
+    closeP:'Send us the program, how many students and how many boards you need. We build the whole thing — the roster, a link for every student — and send it over to look at. Nothing goes live until you say so.',
+    closeCta:'Talk to us',
+    foot1:'TrueBounce Puerto Rico · Gostar Digital LLC'
+  },
+  es:{
+    markPr:'Puerto Rico', navPlay:'Pruébalo',
+    kick:'TrueBounce × Cada Punto',
+    h1:'Tu comunidad compra el tablero.',
+    lede:'Un sistema TrueBounce completo, entregado e instalado, pagado por las familias que usan la cancha. El programa no gasta nada.',
+    cta1:'Cómo funciona', cta2:'Juega un reto',
+    d1:'Un tablero completo, instalado', d2:'Estudiantes, con cuatro padrinos cada uno', d3:'Lo que paga el programa',
+    howH:'Nada que vender. Nada que entregar.',
+    howP:'Los estudiantes juegan un reto de memoria. Su familia y sus amigos prometen por cada punto que anotan. Terminadas las corridas, cada padrino paga por los puntos que de verdad se anotaron — y el tablero se instala.',
+    s1h:'Los padrinos prometen por punto',
+    s1p:'Cada estudiante comparte un enlace. Mamá, una tía, un vecino promete lo que quiera por punto — diez centavos, veinticinco, un dólar. Todavía no se cobra nada.',
+    s2h:'Una corrida oficial',
+    s2p:'La práctica es gratis e ilimitada. Después, una sola corrida que cuenta, puntuada por nuestro programa. Nadie cuenta a mano y nadie puede repetirla.',
+    s3p:'El tablero se instala',
+    s3pp:'Cada padrino recibe un correo con la puntuación y un botón para pagar. Alcanzada la meta, pedimos el tablero y TrueBounce lo instala.',
+    playH:'Prueba un reto ahora',
+    playP:'Esto es lo que juegan los estudiantes — cinco balones en un tablero. Juega unas rondas; explica todo más rápido que nosotros.',
+    gFort:'The Fortress',
+    gFortD:'Cinco balones en un tablero. Observa la cadena y tócala de vuelta — una más cada ronda.',
+    gPlay:'Jugar →',
+    freeP:'Gratis para probar. Los estudiantes de un programa juegan todo lo que quieran.',
+    scoreH:'Cada ronda vale más que la anterior',
+    scoreP:'Puntuación en cadena: cada ronda añade una más que recordar, y guarda sus propios puntos. Pasar de nueve rondas a doce no es un tercio más — es casi el doble.',
+    thR:'Rondas logradas', thP:'Puntos',
+    scoreFine:'No hay techo. La corrida termina con el primer toque equivocado, así que un padrino nunca se lleva una sorpresa — y el estudiante tiene toda la razón para practicar.',
+    boardH:'Lo que $2,400 pone en la cancha',
+    boardP:'Un sistema TrueBounce completo — tablero, aro, acolchado y herrajes — entregado e instalado.',
+    sp1:'<b>Superficie perforada.</b> Los orificios liberan la energía de la bola, así que los rebotes salen limpios y los jugadores usan el tablero en vez de evitarlo.',
+    sp2:'<b>Hecho para durar a la intemperie.</b> Irrompible, resistente a los rayos UV y al grafiti — para una cancha que vive afuera.',
+    sp3:'<b>Patentado, y hecho en Massachusetts.</b> TrueBounce los fabrica desde 1992.',
+    sp4:'<b>Ya es el estándar.</b> Nueva York, Boston, Filadelfia, Atlanta, San Francisco y Sacramento juegan en ellos, además de escuelas y parques por todo el país.',
+    sp5:'<b>Instalado aquí.</b> Nosotros mismos los entregamos e instalamos en Puerto Rico.',
+    quote:'“Un sistema de tableros mejor que el de cualquier equipo de la NBA.”',
+    quoteWho:'— un director de escuela en Puerto Rico, después de instalarle el suyo',
+    costH:'Gratis para tu programa.',
+    costP:'Sin cargo de instalación, sin cargo mensual, sin contrato, y nada que pedir, guardar ni devolver. Nuestro cargo sale del tablero, nunca de lo que prometió una familia. Recauda más que la meta y cada dólar de más se queda con el programa.',
+    closeH:'Cuéntanos de tu cancha.',
+    closeP:'Dinos el programa, cuántos estudiantes y cuántos tableros necesitas. Nosotros armamos todo — la lista, un enlace para cada estudiante — y te lo mandamos para que lo veas. Nada sale en vivo hasta que tú lo digas.',
+    closeCta:'Habla con nosotros',
+    foot1:'TrueBounce Puerto Rico · Gostar Digital LLC'
+  }
+};
+
+var LANG = 'en';
+try {
+  LANG = localStorage.getItem('tb-lang') ||
+    ((navigator.language || '').toLowerCase().indexOf('es') === 0 ? 'es' : 'en');
+} catch(e){}
+
+function T(k){ return (STR[LANG] && STR[LANG][k]) || STR.en[k] || ''; }
+
+function paint(){
+  document.documentElement.lang = LANG;
+  var nodes = document.querySelectorAll('[data-t]');
+  for (var i = 0; i < nodes.length; i++){
+    var k = nodes[i].getAttribute('data-t');
+    var v = T(k);
+    if (v.indexOf('<') !== -1) nodes[i].innerHTML = v;
+    else nodes[i].textContent = v;
+  }
+  document.getElementById('langBtn').textContent = LANG === 'en' ? 'ES' : 'EN';
+}
+
+function toggleLang(){
+  LANG = LANG === 'en' ? 'es' : 'en';
+  try { localStorage.setItem('tb-lang', LANG); } catch(e){}
+  paint();
+}
+
+paint();
+</script>
+</body>
+</html>
