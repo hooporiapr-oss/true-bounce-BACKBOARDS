@@ -47,7 +47,7 @@ html,body{width:100%;height:100%;background:#000;font-family:Arial,sans-serif;co
 }
 .demo-dot{
   position:absolute;transform:translate(-50%,-50%);
-  width:17%;aspect-ratio:1;border-radius:50%;
+  width:23%;aspect-ratio:1;border-radius:50%;
   border:2px solid rgba(255,255,255,.18);
   transition:all .14s;
 }
@@ -232,8 +232,6 @@ html,body{width:100%;height:100%;background:#000;font-family:Arial,sans-serif;co
             fill="url(#panelFill)" stroke="#FF7A18" stroke-width="7"/>
       <rect x="20" y="20" width="480" height="300" rx="6"
             fill="none" stroke="rgba(255,255,255,.85)" stroke-width="3"/>
-      <rect x="196" y="150" width="128" height="96" rx="2"
-            fill="none" stroke="rgba(255,255,255,.55)" stroke-width="4"/>
     </svg>
     <div id="targetLayer"></div>
   </div>
@@ -883,7 +881,7 @@ function buildBoard(){
   if(!boardPositions||!boardColors) newBoardArrangement();
   var positions=boardPositions;
   var colors=boardColors;
-  var size=Math.max(64,Math.min(104,court.width*.19));
+  var size=Math.max(78,Math.min(136,court.width*.25));
   for(var i=0;i<NUM_TARGETS;i++){
     var el=document.createElement('div');
     el.className='fortress-ball';
